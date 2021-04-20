@@ -29,4 +29,4 @@ Input: s = ""
 Output: 0
 ``` 
 
-link: https://leetcode.com/problems/longest-substring-without-repeating-characters/
+[Link](https://leetcode.com/problems/longest-substring-without-repeating-characters)

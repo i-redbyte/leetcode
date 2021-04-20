@@ -39,4 +39,5 @@ Output: false
 Constraints:
 
 1 <= num <= 10^8
+
 [Link](https://leetcode.com/problems/perfect-number/)

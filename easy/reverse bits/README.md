@@ -29,4 +29,4 @@ Explanation: The input binary string 11111111111111111111111111111101 represents
 
 - The input must be a binary string of length 32
 
-[task link](https://leetcode.com/problems/reverse-bits/)
+[Task link](https://leetcode.com/problems/reverse-bits/)

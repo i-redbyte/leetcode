@@ -28,3 +28,4 @@ Constraints:
 - 1 <= nums.length <= 1^04
 - -2^31 <= nums[i] <= 2^31 - 1
 
+[Link](https://leetcode.com/problems/third-maximum-number/)
