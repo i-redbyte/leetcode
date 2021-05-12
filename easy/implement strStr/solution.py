@@ -1,10 +1,12 @@
 from pip._vendor.msgpack.fallback import xrange
+
+
 # use KMP algorithm
 # https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm
 
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
-        d = self.prefix(needle)
+        dic = self.prefix(needle)
         i = j = 0
         while i < len(haystack) and j < len(needle):
             if needle[j] == haystack[i]:
@@ -13,22 +15,22 @@ class Solution:
             elif j == 0:
                 i += 1
             else:
-                j = d[j - 1]
+                j = dic[j - 1]
         else:
             if j == len(needle):
                 return i - j
             return -1
 
-    def prefix(self, s):
-        dict = {0: 0}
+    def prefix(self, s: str) -> {int: int}:
+        dictionary = {0: 0}
         for i in xrange(1, len(s)):
-            j = dict[i - 1]
+            j = dictionary[i - 1]
             while j > 0 and s[j] != s[i]:
-                j = dict[j - 1]
+                j = dictionary[j - 1]
             if s[j] == s[i]:
                 j += 1
-            dict[i] = j
-        return dict
+            dictionary[i] = j
+        return dictionary
 
 
 s = Solution()
