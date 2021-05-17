@@ -1,7 +1,5 @@
 class Solution:
     def addDigits(self, num: int) -> int:
-        if num < 10:
-            return num
         result = 0
         while num >= 10:
             result = 0
@@ -12,11 +10,19 @@ class Solution:
             num = result
         return result
 
+    def addDigits2(self, num: int) -> int:
+        if num < 10:
+            return num
+        result = num % 9
+        if result == 0:
+            result = 9
+        return result
+
 
 s = Solution()
-print(s.addDigits(100000))
-print(s.addDigits(100029))
-print(s.addDigits(123))
-print(s.addDigits(9))
-print(s.addDigits(10))
-print(s.addDigits(38))
+print(s.addDigits2(100000))
+print(s.addDigits2(100029))
+print(s.addDigits2(123))
+print(s.addDigits2(9))
+print(s.addDigits2(10))
+print(s.addDigits2(38))
