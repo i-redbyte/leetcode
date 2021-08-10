@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
         n = len(t)
@@ -16,6 +19,9 @@ class Solution:
                 return i
         return ""
 
+    def findTheDifference_cheaters(self, s: str, t: str) -> str:
+        return ' '.join(list(Counter(t) - Counter(s)))
+
 
 s = Solution()
 print(s.findTheDifference("abcd", "abcde"))
@@ -24,3 +30,10 @@ print(s.findTheDifference("a", "aa"))
 print(s.findTheDifference("ae", "aea"))
 print(s.findTheDifference("bbbb", "bbbbb"))
 print(s.findTheDifference("lenin", "ininel"))
+print("===== cheats solution =====")
+print(s.findTheDifference_cheaters("abcd", "abcde"))
+print(s.findTheDifference_cheaters("", "y"))
+print(s.findTheDifference_cheaters("a", "aa"))
+print(s.findTheDifference_cheaters("ae", "aea"))
+print(s.findTheDifference_cheaters("bbbb", "bbbbb"))
+print(s.findTheDifference_cheaters("lenin", "ininel"))
