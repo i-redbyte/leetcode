@@ -28,4 +28,4 @@ Output: 0
 ``` 
 -2^31 <= x <= 2^31 - 1
 ```
-link: https://leetcode.com/problems/reverse-integer/
+[Link](https://leetcode.com/problems/reverse-integer)
