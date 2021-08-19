@@ -5,6 +5,11 @@ from typing import List
 
 
 class Solution:
+    def reverseString2(self, s: List[str]) -> None:
+        s[::-1] = s  # or s.reverse()
+        print(s)
+        return
+
     def reverseString(self, s: List[str]) -> None:
         n = len(s) - 1
         h = len(s) // 2
