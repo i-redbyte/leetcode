@@ -27,4 +27,4 @@ Constraints:
 - 1 <= nums.length <= 10^5
 - 0 <= nums[i] <= 10^9
 
-[Link]()
+[Link](https://leetcode.com/problems/count-nice-pairs-in-an-array/)
