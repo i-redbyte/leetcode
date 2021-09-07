@@ -1,7 +1,6 @@
-# Definition for singly-linked list.
 from typing import List, Optional
 
-
+# Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -31,7 +30,8 @@ l2 = ListNode(1, ListNode(3, ListNode(4, None)))
 l3 = ListNode(2, ListNode(6, None))
 res = s.mergeKLists([l1, l2, l3])
 print("Result:")
-while res.next:
-    print(res.val)
+result = ""
+while res is not None:
+    result += "{} ".format(res.val)
     res = res.next
-print(res.val)
+print(result)
