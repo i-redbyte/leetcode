@@ -2,7 +2,20 @@ from typing import List
 
 
 class Solution:
+    # Use binary search for optimization
     def peakIndexInMountainArray(self, arr: List[int]) -> int:
+        n = len(arr)
+        left = 0
+        right = n - 1
+        while left <= right:
+            mid = left + (right - left) // 2
+            if arr[mid] < arr[mid + 1]:
+                left = mid + 1
+            else:
+                right = mid - 1
+        return left
+
+    def peakIndexInMountainArray2(self, arr: List[int]) -> int:
         n = len(arr) - 1
         for i in range(1, n):
             if arr[i - 1] <= arr[i] >= arr[i + 1]:
