@@ -17,3 +17,8 @@ class Solution:
             else:
                 tmp = tmp.next
         return head
+
+
+s = Solution()
+l1 = ListNode(1, ListNode(1, ListNode(2, None)))
+s.deleteDuplicates(l1)
