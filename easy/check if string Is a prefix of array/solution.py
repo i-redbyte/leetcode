@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     def isPrefixString(self, s: str, words: List[str]) -> bool:
+        tmp = ""
+        for word in words:
+            tmp += word
+            if s == tmp:
+                return True
+        return False
+
+    def isPrefixString1(self, s: str, words: List[str]) -> bool:
         pos = 0
         n = len(s)
         for word in words:
