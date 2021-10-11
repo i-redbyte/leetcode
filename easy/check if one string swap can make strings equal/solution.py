@@ -1,5 +1,17 @@
 class Solution:
     def areAlmostEqual(self, s1: str, s2: str) -> bool:
+        list_s1, list_s2 = [], []
+        for l1, l2 in zip(s1, s2):
+            if l1 == l2:
+                continue
+            else:
+                list_s1.append(l1)
+                list_s2.append(l2)
+            if len(list_s1) > 2:
+                return False
+        return list_s1 == list_s2[::-1]
+
+    def areAlmostEqual1(self, s1: str, s2: str) -> bool:
         if s1 == s2:
             return True
         count = 0
@@ -18,3 +30,4 @@ print(s.areAlmostEqual("attack", "defend"))
 print(s.areAlmostEqual("kelb", "kelb"))
 print(s.areAlmostEqual("abcd", "dcba"))
 print(s.areAlmostEqual("caa", "aaz"))
+print(s.areAlmostEqual("abca", "abcc"))
