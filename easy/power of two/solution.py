@@ -1,8 +1,15 @@
+import math
 import sys
 
 
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
+        if n <= 0 or n >= sys.maxsize * 2 + 1:
+            return False
+        log = math.log2(n)
+        return log == round(log)
+
+    def isPowerOfTwo2(self, n: int) -> bool:
         if n == 0:
             return False
         p = 1
