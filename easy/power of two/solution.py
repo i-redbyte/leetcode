@@ -3,7 +3,19 @@ import sys
 
 
 class Solution:
-    def isPowerOfTwo(self, n: int) -> bool:
+
+    def isPowerOfTwo(self, n: int) -> bool:  # the simplest and worst solution is the tests fail
+        if n <= 0:
+            return False
+        if n <= 2:
+            return True
+        m = (n // 2) + 1
+        for i in range(1, m):
+            if pow(2, i) == n:
+                return True
+        return False
+
+    def isPowerOfTwo3(self, n: int) -> bool:
         if n <= 0 or n >= sys.maxsize * 2 + 1:
             return False
         log = math.log2(n)
@@ -25,6 +37,9 @@ class Solution:
 
 
 s = Solution()
+print(s.isPowerOfTwo(262143))
+print(s.isPowerOfTwo(8))
+print(s.isPowerOfTwo(6))
 print(s.isPowerOfTwo(1))
 print(s.isPowerOfTwo(16))
 print(s.isPowerOfTwo(3))
