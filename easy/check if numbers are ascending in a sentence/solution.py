@@ -1,4 +1,5 @@
 class Solution:
+
     def isNumber(self, s: str) -> int:
         result = ""
         for i in s:
@@ -9,6 +10,10 @@ class Solution:
         return int(result)
 
     def areNumbersAscending(self, s: str) -> bool:
+        nums = [int(i) for i in s.split() if i.isdigit()]
+        return all(i < j for i, j in zip(nums, nums[1:]))
+
+    def areNumbersAscending1(self, s: str) -> bool:
         words = s.split()
         prev = -1
         for w in words:
