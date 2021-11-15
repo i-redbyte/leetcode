@@ -11,7 +11,7 @@ class Solution:
                 return False
         return True
 
-    def countPrimeSetBits(self, left: int, right: int) -> int:
+    def countPrimeSetBits1(self, left: int, right: int) -> int:
         result = 0
         right += 1
         for i in range(left, right):
@@ -22,6 +22,14 @@ class Solution:
                     count += 1
                 tmp = tmp >> 1
             if self.isPrime(count):
+                result += 1
+        return result
+
+    def countPrimeSetBits(self, left: int, right: int) -> int:
+        primes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31}
+        result = 0
+        for num in range(left, right + 1):
+            if str(bin(num)).count("1") in primes:
                 result += 1
         return result
 
