@@ -1,5 +1,5 @@
 # Definition for a binary tree node.
-from typing import Optional
+from typing import Optional, List
 
 
 class TreeNode:
@@ -7,6 +7,13 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
+    def print_tree(self):
+        if self.left:
+            self.left.print_tree()
+        print(self.val)
+        if self.right:
+            self.right.print_tree()
 
 
 class Solution:
@@ -60,9 +67,17 @@ class Solution:
         return root
 
 
+def printTree(node: TreeNode, level=0):
+    if node is not None:
+        printTree(node.left, level + 1)
+        print(' ' * 4 * level + '->', node.val)
+        printTree(node.right, level + 1)
+
+
 s = Solution()
 tree = TreeNode(5, TreeNode(3, TreeNode(2), TreeNode(4)), TreeNode(6, None, TreeNode(7)))
-result_tree = s.deleteNode(tree, 3)
-while result_tree:
-    print(result_tree.val)
-    result_tree = result_tree.left
+print("After:")
+printTree(tree)
+print("Before:")
+printTree(s.deleteNode(tree, 3))
+
