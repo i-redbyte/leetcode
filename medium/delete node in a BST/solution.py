@@ -19,6 +19,26 @@ class Solution:
     def deleteNode(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
         if not root:
             return None
+        if root.val == key:
+            if not root.left and not root.right:
+                return None
+            if not root.left and root.right:
+                return root.right
+            if root.left and not root.right:
+                return root.left
+            if root.left and root.right:
+                tmp = self.min_value(root.right)
+                root.val = tmp.val
+                root.right = self.deleteNode(root.right, root.val)
+        elif root.val > key:
+            root.left = self.deleteNode(root.left, key)
+        else:
+            root.right = self.deleteNode(root.right, key)
+        return root
+
+    def deleteNode1(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
+        if not root:
+            return None
         if root.val > key:
             root.left = self.deleteNode(root.left, key)
         elif root.val < key:
@@ -46,4 +66,3 @@ result_tree = s.deleteNode(tree, 3)
 while result_tree:
     print(result_tree.val)
     result_tree = result_tree.left
-
