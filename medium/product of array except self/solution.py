@@ -2,7 +2,8 @@ from typing import List
 
 
 class Solution:
-    def productExceptSelf(self, nums: List[int]) -> List[int]:
+
+    def productExceptSelf1(self, nums: List[int]) -> List[int]:
         result = []
         n = len(nums)
         mul = 1
@@ -13,6 +14,19 @@ class Solution:
         for i in range(n - 1, -1, -1):
             result[i] = result[i] * mul
             mul *= nums[i]
+        return result
+
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        m = n - 1
+        result = [1] * n
+        left = 1
+        right = 1
+        for i in range(n):
+            result[i] *= left
+            result[m - i] *= right
+            left *= nums[i]
+            right *= nums[m - i]
         return result
 
 
