@@ -3,6 +3,12 @@ from typing import List
 
 class Solution:
     def minCostToMoveChips(self, position: List[int]) -> int:
+        counts = [0, 0]
+        for i in position:
+            counts[i & 1] += 1
+        return min(counts)
+
+    def minCostToMoveChips1(self, position: List[int]) -> int:
         even_step_counter = 0
         odd_step_counter = 0
         for i in position:
