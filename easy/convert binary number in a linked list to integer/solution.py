@@ -7,6 +7,13 @@ class ListNode:
 
 class Solution:
     def getDecimalValue(self, head: ListNode) -> int:
+        result = head.val
+        while head.next:
+            result = result * 2 + head.next.val
+            head = head.next
+        return result
+
+    def getDecimalValue1(self, head: ListNode) -> int:
         binaries = []
         while head:
             binaries.append(head.val)
