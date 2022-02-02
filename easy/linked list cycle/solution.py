@@ -12,12 +12,12 @@ class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         if not head or not head.next:
             return False
-        slow = head
-        fast = head
-        while fast is not None and fast.next is not None:
-            fast = fast.next.next
-            slow = slow.next
-            if slow == fast:
+        tortoise = head
+        rabbit = head
+        while rabbit is not None and rabbit.next is not None:
+            rabbit = rabbit.next.next
+            tortoise = tortoise.next
+            if tortoise == rabbit:
                 return True
         return False
 
