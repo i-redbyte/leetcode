@@ -1,5 +1,7 @@
-#Robot Bounded In Circle
-On an infinite plane, a robot initially stands at (0, 0) and faces north. The robot can receive one of three instructions:
+# Robot Bounded In Circle
+
+On an infinite plane, a robot initially stands at (0, 0) and faces north. The robot can receive one of three
+instructions:
 
 - "G": go straight 1 unit;
 - "L": turn 90 degrees to the left;
@@ -35,6 +37,7 @@ Explanation: The robot moves from (0, 0) -> (0, 1) -> (-1, 1) -> (-1, 0) -> (0, 
 ```
 
 **Constraints:**
+
 - 1 <= instructions.length <= 100
 - instructions[i] is 'G', 'L' or, 'R'.
 

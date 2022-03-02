@@ -1,4 +1,4 @@
-# Second Largest Digit in a String #
+# Second Largest Digit in a String
 
 Given an alphanumeric string s, return the second largest numerical digit that appears in s, or -1 if it does not exist.
 

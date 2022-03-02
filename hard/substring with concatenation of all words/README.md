@@ -1,5 +1,7 @@
-#Substring with Concatenation of All Words
-You are given a string s and an array of strings words of the same length. Return all starting indices of substring(s) in s that is a concatenation of each word in words exactly once, in any order, and without any intervening characters.
+# Substring with Concatenation of All Words
+
+You are given a string s and an array of strings words of the same length. Return all starting indices of substring(s)
+in s that is a concatenation of each word in words exactly once, in any order, and without any intervening characters.
 
 You can return the answer in any order.
 
@@ -18,6 +20,7 @@ Example 2:
 Input: s = "wordgoodgoodgoodbestword", words = ["word","good","best","word"]
 Output: []
 ```
+
 Example 3:
 
 ```
@@ -26,6 +29,7 @@ Output: [6,9,12]
 ```
 
 **Constraints:**
+
 - 1 <= s.length <= 10^4
 - s consists of lower-case English letters.
 - 1 <= words.length <= 5000

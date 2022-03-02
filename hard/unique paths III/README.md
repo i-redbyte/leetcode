@@ -1,4 +1,5 @@
-#Unique Paths III
+# Unique Paths III
+
 You are given an m x n integer array grid where grid[i][j] could be:
 
 - 1 representing the starting square. There is exactly one starting square.
@@ -6,11 +7,13 @@ You are given an m x n integer array grid where grid[i][j] could be:
 - 0 representing empty squares we can walk over.
 - -1 representing obstacles that we cannot walk over.
 
-Return the number of 4-directional walks from the starting square to the ending square, that walk over every non-obstacle square exactly once.
+Return the number of 4-directional walks from the starting square to the ending square, that walk over every
+non-obstacle square exactly once.
 
 Example 1:
 
 ![](https://assets.leetcode.com/uploads/2021/08/02/lc-unique1.jpg)
+
 ```
 Input: grid = [[1,0,0,0],[0,0,0,0],[0,0,2,-1]]
 Output: 2
@@ -22,6 +25,7 @@ Explanation: We have the following two paths:
 Example 2:
 
 ![](https://assets.leetcode.com/uploads/2021/08/02/lc-unique2.jpg)
+
 ```
 Input: grid = [[1,0,0,0],[0,0,0,0],[0,0,0,2]]
 Output: 4
@@ -35,12 +39,14 @@ Explanation: We have the following four paths:
 Example 3:
 
 ![](https://assets.leetcode.com/uploads/2021/08/02/lc-unique3-.jpg)
+
 ```
 Input: grid = [[0,1],[2,0]]
 Output: 0
 Explanation: There is no path that walks over every empty square exactly once.
 Note that the starting and ending square can be anywhere in the grid.
 ```
+
 **Constraints:**
 
 - m == grid.length

@@ -1,4 +1,5 @@
-#N-Repeated Element in Size 2N Array
+# N-Repeated Element in Size 2N Array
+
 You are given an integer array nums with the following properties:
 
 - nums.length == 2 * n.
@@ -20,6 +21,7 @@ Example 2:
 Input: nums = [2,1,2,5,3,2]
 Output: 2
 ```
+
 Example 3:
 
 ```
@@ -28,6 +30,7 @@ Output: 5
 ```
 
 **Constraints:**
+
 - 2 <= n <= 5000
 - nums.length == 2 * n
 - 0 <= nums[i] <= 10^4

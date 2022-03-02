@@ -1,5 +1,7 @@
-#Maximum Product Subarray
-Given an integer array nums, find a contiguous non-empty subarray within the array that has the largest product, and return the product.
+# Maximum Product Subarray
+
+Given an integer array nums, find a contiguous non-empty subarray within the array that has the largest product, and
+return the product.
 
 It is guaranteed that the answer will fit in a 32-bit integer.
 
@@ -22,9 +24,9 @@ Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
 ```
 
 **Constraints:**
+
 - 1 <= nums.length <= 2 * 10^4
 - -10 <= nums[i] <= 10
 - The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
-
 
 [Link](https://leetcode.com/problems/maximum-product-subarray/)
