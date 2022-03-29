@@ -6,17 +6,13 @@ class Solution:
         n = len(nums)
         left = 0
         right = n - 1
-
         while left <= right:
             mid = (left + right) // 2
-
             if target == nums[mid]:
                 return True
-
             elif nums[left] == nums[mid] == nums[right]:
                 left += 1
                 right -= 1
-
             elif nums[left] <= nums[mid]:
                 if nums[left] <= target < nums[mid]:
                     right = mid - 1
