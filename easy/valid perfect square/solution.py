@@ -1,5 +1,14 @@
 class Solution:
     def isPerfectSquare(self, num: int) -> bool:
+        i = 1
+        while i ** 2 <= num:
+            if i ** 2 == num:
+                return True
+            else:
+                i += 1
+        return False
+
+    def isPerfectSquare4(self, num: int) -> bool:
         left = 0
         right = num
         while left <= right:
