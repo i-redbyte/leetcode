@@ -11,7 +11,7 @@ class Solution:
                 if i == j:
                     continue
                 if points[j][0] - points[i][0] == 0:
-                    sl = 'pi/2'
+                    sl = -999999
                 else:
                     sl = (points[j][1] - points[i][1]) / (points[j][0] - points[i][0])
                 if sl in m:
