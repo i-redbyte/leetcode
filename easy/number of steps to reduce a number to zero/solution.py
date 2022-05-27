@@ -1,5 +1,9 @@
 class Solution:
     def numberOfSteps(self, num: int) -> int:
+        digits = f'{num:b}'
+        return digits.count('1') - 1 + len(digits)
+
+    def numberOfSteps1(self, num: int) -> int:
         steps = 0
         while num > 0:
             if num & 1 == 0:
