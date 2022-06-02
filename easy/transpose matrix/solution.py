@@ -10,6 +10,9 @@ class Solution:
                  for row in matrix]))
 
     def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
+        return list(zip(*matrix))
+
+    def transpose1(self, matrix: List[List[int]]) -> List[List[int]]:
         row = len(matrix)
         col = len(matrix[0])
         result = [[0 for x in range(row)] for y in range(col)]
