@@ -2,7 +2,26 @@ from typing import List
 
 
 class Solution:
-    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+    def intersection(self, nums1, nums2):
+        nums2.sort()
+        result = []
+        n = len(nums1)
+        m = len(nums2) - 1
+        for i in range(n):
+            left = 0
+            right = m
+            while left <= right:
+                mid = (left + right) // 2
+                if (nums2[mid] == nums1[i]) and (nums2[mid] not in result):
+                    result.append(nums2[mid])
+                    break
+                elif nums2[mid] < nums1[i]:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+        return result
+
+    def intersection4(self, nums1: List[int], nums2: List[int]) -> List[int]:
         result = []
         for i in nums1:
             if i not in result and i in nums2:
