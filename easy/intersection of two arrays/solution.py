@@ -3,6 +3,20 @@ from typing import List
 
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        nums1.sort()
+        nums2.sort()
+        result = []
+        k = 0
+        n = len(nums1)
+        m = len(nums2)
+        for i in range(n):
+            for j in range(m):
+                if nums1[i] == nums2[j] and not nums1[i] in result:
+                    result.append(nums1[i])
+                    k += 1
+        return result
+
+    def intersection1(self, nums1: List[int], nums2: List[int]) -> List[int]:
         return list(set(nums1).intersection(set(nums2)))
 
 
