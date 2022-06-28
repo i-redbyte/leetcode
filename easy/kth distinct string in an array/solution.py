@@ -1,8 +1,18 @@
+from collections import Counter
 from typing import List
 
 
 class Solution:
     def kthDistinct(self, arr: List[str], k: int) -> str:
+        table = Counter(arr)
+        for i in arr:
+            if table[i] == 1:
+                k -= 1
+            if k == 0:
+                return i
+        return ""
+
+    def kthDistinct1(self, arr: List[str], k: int) -> str:
         uniq = []
         n = len(arr)
         if n == 1:
