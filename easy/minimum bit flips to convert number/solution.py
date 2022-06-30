@@ -1,5 +1,8 @@
 class Solution:
     def minBitFlips(self, start: int, goal: int) -> int:
+        return bin(start ^ goal).count('1')
+
+    def minBitFlips1(self, start: int, goal: int) -> int:
         condition = start ^ goal
         result = 0
         while condition > 0:
