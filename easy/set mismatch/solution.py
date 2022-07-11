@@ -3,6 +3,19 @@ from typing import List
 
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
+        s = set()
+        duplicate = None
+        missing = 0
+        for i, num in enumerate(nums):
+            if num in s:
+                duplicate = num
+            else:
+                missing ^= num
+            missing ^= (i + 1)
+            s.add(num)
+        return [duplicate, missing]
+
+    def findErrorNums2(self, nums: List[int]) -> List[int]:
         n = len(nums)
         s = sum(set(nums))
         n = n * (1 + n) // 2
