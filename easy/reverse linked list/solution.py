@@ -9,7 +9,17 @@ class ListNode:
 
 
 class Solution:
+    def recursive(self, node, p):
+        if not node:
+            return p
+        n = node.next
+        node.next = p
+        return self.recursive(n, node)
+
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        return self.recursive(head, None)
+
+    def reverseList2(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if head is None or not head:
             return head
         if head.next is None:
@@ -42,9 +52,9 @@ r = s.reverseList(l)
 while r is not None:
     print(r.val)
     r = r.next
-r1 = s.reverseList1([])
+r1 = s.reverseList([])
 print(r1)
-one1 = s.reverseList1(ListNode(1,ListNode(2)))
+one1 = s.reverseList(ListNode(1, ListNode(2)))
 while one1 is not None:
     print(one1.val)
     one1 = one1.next
