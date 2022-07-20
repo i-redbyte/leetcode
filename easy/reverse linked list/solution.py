@@ -10,6 +10,18 @@ class ListNode:
 
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if head is None or not head:
+            return head
+        if head.next is None:
+            return head
+        tmp = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+        return tmp
+
+    def reverseList1(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head or head.next is None:
+            return head
         second = head.next
         third = second.next
         head.next = None
@@ -30,3 +42,9 @@ r = s.reverseList(l)
 while r is not None:
     print(r.val)
     r = r.next
+r1 = s.reverseList1([])
+print(r1)
+one1 = s.reverseList1(ListNode(1,ListNode(2)))
+while one1 is not None:
+    print(one1.val)
+    one1 = one1.next
