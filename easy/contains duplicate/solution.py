@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
+        return len(nums) != len(set(nums))
+
+    def containsDuplicate1(self, nums: List[int]) -> bool:
         nums.sort()
         n = len(nums)
         for i in range(0, n - 1):
