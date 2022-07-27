@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        return len(max("".join(map(str, nums)).split("0"), key=len))
+
+    def findMaxConsecutiveOnes1(self, nums: List[int]) -> int:
         result = 0
         counter = 0
         for i in nums:
