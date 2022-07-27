@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def buildArray(self, nums: List[int]) -> List[int]:
+        return [nums[i] for i in nums]
+
+    def buildArray(self, nums: List[int]) -> List[int]:
         n = len(nums)
         for i, v in enumerate(nums):
             nums[i] += n * (nums[v] % n)
