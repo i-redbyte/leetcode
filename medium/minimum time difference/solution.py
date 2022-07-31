@@ -8,6 +8,11 @@ class Solution:
         return (h * 60) + m
 
     def findMinDifference(self, timePoints: List[str]) -> int:
+        t = sorted(int(t[:2]) * 60 + int(t[-2:]) for t in timePoints)
+        t.append(t[0] + 1440)
+        return min(b - a for a, b in zip(t, t[1:]))
+
+    def findMinDifference1(self, timePoints: List[str]) -> int:
         if len(timePoints) < 2:
             return 0
         minutes = []
