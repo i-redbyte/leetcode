@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def maximumWealth(self, accounts: List[List[int]]) -> int:
+        return max((sum(i) for i in accounts))
+
+    def maximumWealth1(self, accounts: List[List[int]]) -> int:
         n = len(accounts)
         m = len(accounts[0])
         result = 0
