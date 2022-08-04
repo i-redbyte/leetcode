@@ -3,6 +3,13 @@ from typing import List
 
 class Solution:
     def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
+        result = []
+        n = len(nums)
+        for i in range(n):
+            result.insert(index[i], nums[i])
+        return result
+
+    def createTargetArray1(self, nums: List[int], index: List[int]) -> List[int]:
         n = len(nums)
         result = [0] * n
         for i in range(n):
