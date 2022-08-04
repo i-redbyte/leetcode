@@ -1,10 +1,19 @@
 from typing import List
+from collections import Counter
 
 
 class Solution:
     def findLucky(self, arr: List[int]) -> int:
+        d = Counter(arr)
+        result = -1
+        for i in arr:
+            if d[i] == i:
+                result = max(result, i)
+        return result
+
+    def findLucky1(self, arr: List[int]) -> int:
         d = dict()
-        n = len(arr)-1
+        n = len(arr) - 1
         arr.sort(reverse=True)
         for i in arr:
             if d.get(i):
