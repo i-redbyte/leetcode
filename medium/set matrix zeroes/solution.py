@@ -8,6 +8,34 @@ class Solution:
                          for row in matrix]))
 
     def setZeroes(self, matrix: List[List[int]]) -> None:
+        self.print(matrix)
+        firstCol = False
+        n = len(matrix)
+        m = len(matrix[0])
+        for i in range(n):
+            if matrix[i][0] == 0:
+                firstCol = True
+            for j in range(1, m):
+                if matrix[i][j] == 0:
+                    matrix[0][j] = 0
+                    matrix[i][0] = 0
+
+        for i in range(1, n):
+            for j in range(1, m):
+                if not matrix[i][0] or not matrix[0][j]:
+                    matrix[i][j] = 0
+
+        if matrix[0][0] == 0:
+            for j in range(m):
+                matrix[0][j] = 0
+
+        if firstCol:
+            for i in range(n):
+                matrix[i][0] = 0
+        self.print(matrix)
+        return
+
+    def setZeroes1(self, matrix: List[List[int]]) -> None:
         """
         Do not return anything, modify matrix in-place instead.
         """
