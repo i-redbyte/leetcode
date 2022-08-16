@@ -1,5 +1,14 @@
 class Solution:
     def repeatedCharacter(self, s: str) -> str:
+        mask = 0
+        n = len(s)
+        for i in range(n):
+            if mask & (1 << (ord(s[i]) - ord('a'))):
+                return s[i]
+            mask |= (1 << (ord(s[i]) - ord('a')))
+        return ""
+
+    def repeatedCharacter2(self, s: str) -> str:
         alphabet = [0] * 26
         for c in s:
             alphabet[ord(c) - ord('a')] += 1
