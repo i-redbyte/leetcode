@@ -9,6 +9,9 @@ class Solution:
             result += 1
         return result
 
+    def sortByBits1(self, arr: List[int]) -> List[int]:
+        return sorted(arr, key=lambda x: (bin(x).count('1'), x))
+
     def sortByBits(self, arr: List[int]) -> List[int]:
         arr.sort()
         n = len(arr)
