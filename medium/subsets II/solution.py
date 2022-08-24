@@ -2,7 +2,20 @@ from typing import List
 
 
 class Solution:
-    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+    def recPass(self, nums, result, tmp, start):
+        result.append(tmp)
+        n = len(nums)
+        for i in range(start, n):
+            if not (i > start and nums[i - 1] == nums[i]):
+                self.recPass(nums, result, tmp + [nums[i]], i + 1)
+
+    def subsetsWithDup(self, nums):
+        nums.sort()
+        result = []
+        self.recPass(nums, result, [], 0)
+        return result
+
+    def subsetsWithDup1(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         result = []
         n = len(nums)
