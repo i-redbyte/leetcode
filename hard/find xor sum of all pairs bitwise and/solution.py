@@ -1,8 +1,13 @@
+from functools import reduce
+from operator import xor
 from typing import List
 
 
 class Solution:
     def getXORSum(self, arr1: List[int], arr2: List[int]) -> int:
+        return reduce(xor, arr1) & reduce(xor, arr2)
+
+    def getXORSum1(self, arr1: List[int], arr2: List[int]) -> int:
         a = arr1[0]
         b = arr2[0]
         n = len(arr1)
