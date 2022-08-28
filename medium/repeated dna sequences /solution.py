@@ -1,8 +1,15 @@
 from typing import List
 
-
 class Solution:
-    def findRepeatedDnaSequences(self, s: str) -> List[str]:
+    def findRepeatedDnaSequences(self, s):
+        r, record = set(), set()
+        n = len(s) - 9
+        for i in range(n):
+            substring = s[i:i + 10]
+            [record, r][substring in record].add(substring)
+        return list(r)
+
+    def findRepeatedDnaSequences1(self, s: str) -> List[str]:
         len_s = len(s)
         if len_s < 10:
             return []
