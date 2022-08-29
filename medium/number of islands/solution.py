@@ -9,6 +9,21 @@ class Solution:
         for i in range(n):
             for j in range(m):
                 if grid[i][j] == "1":
+                    result += 1
+                    stack = [(i, j)]
+                    for k, l in stack:
+                        if 0 <= k < n and 0 <= l < m and grid[k][l] == "1":
+                            grid[k][l] = "0"
+                            stack.extend([(k + 1, l), (k - 1, l), (k, l - 1), (k, l + 1)])
+        return result
+
+    def numIslands1(self, grid: List[List[str]]) -> int:
+        result = 0
+        n = len(grid)
+        m = len(grid[0])
+        for i in range(n):
+            for j in range(m):
+                if grid[i][j] == "1":
                     self.computation(grid, i, j, n, m)
                     result += 1
         return result
