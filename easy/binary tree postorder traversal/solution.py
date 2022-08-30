@@ -10,6 +10,20 @@ class TreeNode:
 
 class Solution:
     def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        result = []
+        stack = [(False, root)]
+        while stack:
+            flag, val = stack.pop()
+            if val:
+                if not flag:
+                    stack.append((True, val))
+                    stack.append((False, val.right))
+                    stack.append((False, val.left))
+                else:
+                    result.append(val.val)
+        return result
+
+    def postorderTraversal1(self, root: Optional[TreeNode]) -> List[int]:
         if not root:
             return []
         return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
