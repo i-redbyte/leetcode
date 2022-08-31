@@ -5,6 +5,20 @@ from typing import List
 class Solution:
     def minimumXORSum(self, nums1: List[int], nums2: List[int]) -> int:
         n = len(nums1)
+        dp = [99999999999] * (1 << n)
+        dp[0] = 0
+        mask = 0
+        while mask < (1 << n):
+            bitset = bin(mask).count("1")
+            for i in range(n):
+                if not ((1 << i) & mask):
+                    dp[mask ^ (1 << i)] = min(dp[mask ^ (1 << i)], dp[mask] + (nums1[bitset] ^ nums2[i]))
+            mask += 1
+        return dp[(1 << n) - 1]
+
+    def minimumXORSum1(self, nums1: List[int], nums2: List[int]) -> int:
+        n = len(nums1)
+
         @lru_cache(None)  # without - Time Limit Exceeded
         def compute(k, val1, val2):
             result = 99999999999
