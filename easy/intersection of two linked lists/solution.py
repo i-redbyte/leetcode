@@ -9,12 +9,28 @@ class ListNode:
 
 
 class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        currA, currB = headA, headB
+        while currA or currB:
+            if currA:
+                currA = currA.next
+            else:
+                headB = headB.next
+            if currB:
+                currB = currB.next
+            else:
+                headA = headA.next
+        while headA is not headB:
+            headA = headA.next
+            headB = headB.next
+        return headA
+
     def changeSign(self, head: ListNode):
         while head:
             head.val *= -1
             head = head.next
 
-    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+    def getIntersectionNode1(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
         self.changeSign(headA)
         while headB:
             if headB.val < 0:
@@ -32,4 +48,3 @@ listB = ListNode(1)
 listB.next = ListNode(5)
 result = s.getIntersectionNode(listA, listB)
 print(result)
-
