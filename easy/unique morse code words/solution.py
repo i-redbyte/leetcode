@@ -1,9 +1,20 @@
 from typing import List
 
 
-
 class Solution:
-    def uniqueMorseRepresentations(self, words: List[str]) -> int:
+    def uniqueMorseRepresentations(self, words):
+        d = {
+            "a": ".-", "b": "-...", "c": "-.-.", "d": "-..", "e": ".", "f": "..-.", "g": "--.", "h": "....", "i": "..",
+            "j": ".---", "k": "-.-", "l": ".-..", "m": "--", "n": "-.", "o": "---", "p": ".--.", "q": "--.-",
+            "r": ".-.", "s": "...", "t": "-", "u": "..-", "v": "...-", "w": ".--", "x": "-..-", "y": "-.--", "z": "--.."
+        }
+
+        n = len(words)
+        for i in range(n):
+            words[i] = "".join([d[c] for c in words[i]])
+        return len(set(words))
+
+    def uniqueMorseRepresentations2(self, words: List[str]) -> int:
         morse = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.",
                  "....", "..", ".---", "-.-", ".-..", "--", "-.",
                  "---", ".--.", "--.-", ".-.", "...", "-", "..-",
@@ -24,7 +35,7 @@ class Solution:
                  "...-", ".--", "-..-", "-.--", "--.."]
 
         result = {"".join(morse[ord(c) - ord('a')] for c in word)
-                for word in words}
+                  for word in words}
         return len(result)
 
 
