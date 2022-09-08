@@ -10,6 +10,16 @@ class TreeNode:
 
 class Solution:
     def tree2str(self, root: Optional[TreeNode]) -> str:
+        result = str(root.val)
+        if root.left:
+            result += "(" + self.tree2str(root.left) + ")"
+        if root.right:
+            if not root.left:
+                result += "()"
+            result += "(" + self.tree2str(root.right) + ")"
+        return result
+
+    def tree2str1(self, root: Optional[TreeNode]) -> str:
         if not root:
             return ""
         if root.left is None and root.right is None:
