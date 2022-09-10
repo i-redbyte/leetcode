@@ -3,6 +3,15 @@ from typing import List
 
 class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
+        n = len(nums)
+        a = [0] * n
+        for i in range(n):
+            a[(i + k) % n] = nums[i]
+
+        for i in range(n):
+            nums[i] = a[i]
+
+    def rotate1(self, nums: List[int], k: int) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
