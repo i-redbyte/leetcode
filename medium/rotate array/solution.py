@@ -2,7 +2,29 @@ from typing import List
 
 
 class Solution:
+
     def rotate(self, nums: List[int], k: int) -> None:
+        n = len(nums)
+        k = k % n
+        count = 0
+        start = 0
+        while count < n:
+            current = start
+            prev = nums[start]
+
+            while True:
+                next = (current + k) % n
+                temp = nums[next]
+                nums[next] = prev
+                prev = temp
+                current = next
+                count += 1
+
+                if start == current:
+                    break
+            start += 1
+
+    def rotate2(self, nums: List[int], k: int) -> None:
         n = len(nums)
         a = [0] * n
         for i in range(n):
