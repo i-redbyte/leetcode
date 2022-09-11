@@ -9,7 +9,16 @@ class TreeNode:
 
 
 class Solution:
-    def invertTree(self, root):
+    def invertTree(self, root: TreeNode) -> TreeNode:
+        if root:
+            tmp = root.left
+            root.left = root.right
+            root.right = tmp
+            self.invertTree(root.left)
+            self.invertTree(root.right)
+            return root
+
+    def invertTree2(self, root):
         if root:
             root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
         return root
