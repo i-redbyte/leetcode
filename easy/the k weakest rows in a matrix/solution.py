@@ -4,6 +4,9 @@ from typing import List
 
 class Solution:
     def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
+        return sorted(range(len(mat)), key=lambda row: sum(mat[row]))[:k]
+
+    def kWeakestRows1(self, mat: List[List[int]], k: int) -> List[int]:
         n = len(mat[0])
         h = []
         for r, row in enumerate(mat):
