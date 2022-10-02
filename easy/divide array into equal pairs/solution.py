@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     def divideArray(self, nums: List[int]) -> bool:
+        n = len(nums)
+        nums.sort()
+        for i in range(0, n, 2):
+            if (nums[i] ^ nums[i + 1]) != 0:
+                return False
+        return True
+
+    def divideArray1(self, nums: List[int]) -> bool:
         dick = {}
         for n in nums:
             if n in dick:
