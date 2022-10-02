@@ -1,8 +1,12 @@
+from collections import Counter
 from typing import List
 
 
 class Solution:
     def divideArray(self, nums: List[int]) -> bool:
+        return all(i % 2 == 0 for i in Counter(nums).values())
+
+    def divideArray2(self, nums: List[int]) -> bool:
         n = len(nums)
         nums.sort()
         for i in range(0, n, 2):
