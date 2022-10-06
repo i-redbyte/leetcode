@@ -1,5 +1,10 @@
 class Solution:
     def rangeBitwiseAnd(self, left: int, right: int) -> int:
+        while right > left:
+            right &= right - 1
+        return left & right
+
+    def rangeBitwiseAnd1(self, left: int, right: int) -> int:
         start = 1
         result = left
         while start <= left:
