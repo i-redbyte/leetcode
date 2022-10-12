@@ -16,7 +16,7 @@ class Solution:
                 col.append(indice[1])
         col_length = len(col)
         row_length = len(row)
-        return col_length * n + row_length * m - 2 * col_length * row_length
+        return col_length * m + row_length * n - 2 * col_length * row_length
 
 
 s = Solution()
