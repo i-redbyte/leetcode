@@ -1,8 +1,12 @@
 class Solution:
     def hasAlternatingBits(self, n: int) -> bool:
+        x = n ^ (n >> 1)
+        return not (x & (x + 1))
+
+    def hasAlternatingBits2(self, n: int) -> bool:
         return (n & (n >> 1)) == 0 and (n & (n >> 2)) == (n >> 2)
 
-    def hasAlternatingBits(self, n: int) -> bool:
+    def hasAlternatingBits1(self, n: int) -> bool:
         b = n & 1
         while n > 0:
             if n & 1 != b:
