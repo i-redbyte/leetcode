@@ -1,5 +1,12 @@
 class Solution:
     def checkIfPangram(self, sentence: str) -> bool:
+        alphabet = list("qwertyuioplkjhgfdsazxcvbnm".strip())
+        for s in sentence:
+            if s in alphabet:
+                alphabet.remove(s)
+        return len(alphabet) == 0
+
+    def checkIfPangram2(self, sentence: str) -> bool:
         result = {}
         for s in sentence:
             result[s] = 1
