@@ -1,5 +1,15 @@
 class Solution:
     def toHex(self, num: int) -> str:
+        if num == 0:
+            return "0"
+        power = "0123456789abcdef"
+        result = ""
+        while num != 0 and len(result) < 8:
+            result = power[num & 15] + result
+            num >>= 4
+        return result
+
+    def toHex2(self, num: int) -> str:
         if 0 <= num < 10:
             return str(num)
         result = ""
