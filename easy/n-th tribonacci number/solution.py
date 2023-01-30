@@ -1,5 +1,20 @@
 class Solution:
     def tribonacci(self, n: int) -> int:
+        if n == 0:
+            return 0
+        if n == 1:
+            return 1
+        if n == 2:
+            return 1
+        tribonacci = [0] * (n + 1)
+        tribonacci[0] = 0
+        tribonacci[1] = 1
+        tribonacci[2] = 1
+        for i in range(3, n + 1):
+            tribonacci[i] = tribonacci[i - 1] + tribonacci[i - 2] + tribonacci[i - 3]
+        return tribonacci[n]
+
+    def tribonacci1(self, n: int) -> int:
         def fib(m: int) -> int:
             if m == 0:
                 return 0
@@ -7,7 +22,8 @@ class Solution:
                 return 1
             if m == 2:
                 return 1
-            return fib(m-1) + fib(m - 2) + fib(m - 3)
+            return fib(m - 1) + fib(m - 2) + fib(m - 3)
+
         return fib(n)
 
 
@@ -18,3 +34,4 @@ print(s.tribonacci(6))
 print(s.tribonacci(10))
 print(s.tribonacci(11))
 print(s.tribonacci(25))
+print(s.tribonacci(30))
