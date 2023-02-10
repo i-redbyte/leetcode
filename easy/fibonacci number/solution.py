@@ -8,7 +8,7 @@ class Solution:
             return 1
         return self.fib(n - 1) + self.fib(n - 2)
 
-    def fib(self, n: int) -> int:
+    def fib2(self, n: int) -> int:
         if n == 0:
             return 0
         if n == 1:
@@ -21,6 +21,15 @@ class Solution:
             f1 = f2
             f2 = result
         return result
+
+    def fib(self, n: int) -> int:
+        def solution(n: int, f1: int = 0, f2: int = 1) -> int:
+            if n == 0:
+                return f1
+            if n == 1:
+                return f2
+            return solution(n - 1, f2, f1 + f2)
+        return solution(n)
 
 
 s = Solution()
