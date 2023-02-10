@@ -1,5 +1,5 @@
 class Solution:
-    def fib(self, n: int) -> int:
+    def fib1(self, n: int) -> int:
         if n == 0:
             return 0
         if n == 1:
@@ -7,6 +7,20 @@ class Solution:
         if n == 2:
             return 1
         return self.fib(n - 1) + self.fib(n - 2)
+
+    def fib(self, n: int) -> int:
+        if n == 0:
+            return 0
+        if n == 1:
+            return 1
+        f1 = 0
+        f2 = 1
+        result = 0
+        for i in range(1, n):
+            result = f1 + f2
+            f1 = f2
+            f2 = result
+        return result
 
 
 s = Solution()
