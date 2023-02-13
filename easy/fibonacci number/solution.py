@@ -29,6 +29,7 @@ class Solution:
             if n == 1:
                 return f2
             return solution(n - 1, f2, f1 + f2)
+
         return solution(n)
 
 
