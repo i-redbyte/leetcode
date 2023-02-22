@@ -1,6 +1,17 @@
 class Solution:
     def truncateSentence(self, s: str, k: int) -> str:
         result = ""
+        count_word = 0
+        for ch in s:
+            if ch == ' ':
+                count_word += 1
+                if count_word == k:
+                    return result
+            result += ch
+        return result
+
+    def truncateSentence2(self, s: str, k: int) -> str:
+        result = ""
         p = 0
         start = 0
         n = len(s)
