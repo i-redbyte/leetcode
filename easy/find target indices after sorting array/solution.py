@@ -4,6 +4,16 @@ from typing import List
 class Solution:
     def targetIndices(self, nums: List[int], target: int) -> List[int]:
         result = []
+        nums = sorted(nums)
+        index = 0
+        for i in nums:
+            if i == target:
+                result.append(index)
+            index += 1
+        return result
+
+    def targetIndices1(self, nums: List[int], target: int) -> List[int]:
+        result = []
         first = self.entry_start(nums, target, True)
         end = self.entry_start(nums, target, False)
         if first == -1 and end == -1:
