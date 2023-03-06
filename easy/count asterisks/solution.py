@@ -1,6 +1,16 @@
 class Solution:
     def countAsterisks(self, s: str) -> int:
         result = 0
+        xor = 0
+        for ch in s:
+            if ch == '|':
+                xor ^= ord(ch)
+            if ch == '*' and xor == 0:
+                result += 1
+        return result
+
+    def countAsterisks2(self, s: str) -> int:
+        result = 0
         index = 0
         for world in s.split("|"):
             if index & 1 == 0:
