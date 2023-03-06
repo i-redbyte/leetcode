@@ -1,5 +1,14 @@
 class Solution:
     def countAsterisks(self, s: str) -> int:
+        result = 0
+        index = 0
+        for world in s.split("|"):
+            if index & 1 == 0:
+                result += len(world) - len(world.replace("*", ""))
+            index += 1
+        return result
+
+    def countAsterisks1(self, s: str) -> int:
         inside = False
         result = 0
         for ch in s:
