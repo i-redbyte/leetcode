@@ -4,6 +4,17 @@ from typing import List
 class Solution:
     def leftRigthDifference(self, nums: List[int]) -> List[int]:
         n = len(nums)
+        r = sum(nums)
+        l = 0
+        result = []
+        for i in range(n):
+            r -= nums[i]
+            result.append(abs(r - l))
+            l += nums[i]
+        return result
+
+    def leftRigthDifference1(self, nums: List[int]) -> List[int]:
+        n = len(nums)
         leftSum = [0] * n
         rightSum = [0] * n
         result = [0] * n
@@ -17,4 +28,4 @@ class Solution:
 
 s = Solution()
 print(s.leftRigthDifference([10, 4, 8, 3]))  # [15,1,11,22]
-print(s.leftRigthDifference([1]))            # [0]
+print(s.leftRigthDifference([1]))  # [0]
