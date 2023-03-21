@@ -1,8 +1,12 @@
+from itertools import accumulate
 from typing import List
 
 
 class Solution:
-    def zeroFilledSubarray(self, nums: List[int]) -> int:
+    def zeroFilledSubarray(self, nums: list[int]) -> int:
+        return sum(accumulate(nums, lambda a, x: 0 if x else a + 1, initial=0))
+
+    def zeroFilledSubarray2(self, nums: List[int]) -> int:
         result = 0
         start = 0
         end = 0
