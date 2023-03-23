@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def evenOddBit(self, n: int) -> List[int]:
+        return [(n & 0b10101010101).bit_count(), (n & 0b01010101010).bit_count()]
+
+    def evenOddBit1(self, n: int) -> List[int]:
         even_count = 0
         odd_count = 0
         while n != 0:
@@ -18,3 +21,4 @@ class Solution:
 s = Solution()
 print(s.evenOddBit(17))
 print(s.evenOddBit(2))
+print(s.evenOddBit(111))
