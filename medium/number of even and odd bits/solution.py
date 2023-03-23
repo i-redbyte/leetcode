@@ -3,6 +3,15 @@ from typing import List
 
 class Solution:
     def evenOddBit(self, n: int) -> List[int]:
+        result = [0] * 2
+        cnt = 0
+        while n:
+            result[cnt & 1] += n & 1
+            cnt += 1
+            n >>= 1
+        return result
+
+    def evenOddBit2(self, n: int) -> List[int]:
         return [(n & 0b10101010101).bit_count(), (n & 0b01010101010).bit_count()]
 
     def evenOddBit1(self, n: int) -> List[int]:
