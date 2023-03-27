@@ -3,6 +3,24 @@ from typing import List
 
 class Solution:
     def minPathSum(self, grid: List[List[int]]) -> int:
+        def solution(i: int, j: int, matrix: List[List[int]], dp: List[List[int]]) -> int:
+            if i == 0 and j == 0:
+                return matrix[0][0]
+            if i < 0 or j < 0:
+                return 999999999999999999999999
+            if dp[i][j] != -1:
+                return dp[i][j]
+
+            up = matrix[i][j] + solution(i - 1, j, matrix, dp)
+            down = matrix[i][j] + solution(i, j - 1, matrix, dp)
+            dp[i][j] = min(up, down)
+            return dp[i][j]
+
+        n, m = len(grid), len(grid[0])
+        dp = [[-1 for i in range(m)] for j in range(n)]
+        return solution(n - 1, m - 1, grid, dp)
+
+    def minPathSum2(self, grid: List[List[int]]) -> int:
         def solution(i: int, j: int, grid: List[List[int]]) -> int:
             if i == 0 and j == 0:
                 return grid[0][0]
