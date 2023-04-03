@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
+        combine = zip(heights, names)
+        result = []
+        c = sorted(combine, reverse=True)
+        for _, j in c:
+            result.append(j)
+        return result
+
+    def sortPeople1(self, names: List[str], heights: List[int]) -> List[str]:
         def quickSort(l: int, r: int):
             i, j = l, r
             x = heights[(l + r) // 2]
