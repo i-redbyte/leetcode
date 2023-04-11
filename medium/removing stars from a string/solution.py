@@ -1,0 +1,21 @@
+class Solution:
+    def removeStars(self, s: str) -> str:
+        characters = [""] * len(s)
+        result = ""
+        k = 0
+        for ch in s:
+            if ch == '*':
+                k -= 1
+            else:
+                characters[k] = ch
+                k += 1
+        for i in range(k):
+            result += characters[i]
+        return result
+
+
+s = Solution()
+print(s.removeStars("leet**cod*e"))
+print(s.removeStars("erase*****"))
+print(s.removeStars("asfdsf"))
+print(s.removeStars("abb*cdfg*****x*"))
