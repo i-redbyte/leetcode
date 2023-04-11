@@ -1,5 +1,17 @@
 class Solution:
     def removeStars(self, s: str) -> str:
+        result = ""
+        i = 0
+        n = len(s)
+        while i < n:
+            if s[i] == '*':
+                result = result[:-1]
+            else:
+                result += s[i]
+            i += 1
+        return result
+
+    def removeStars2(self, s: str) -> str:
         stack = []
         result = ""
         for ch in s:
