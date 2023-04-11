@@ -1,5 +1,20 @@
 class Solution:
     def removeStars(self, s: str) -> str:
+        stack = []
+        result = ""
+        for ch in s:
+            if len(stack) > 0 and ch == '*':
+                stack.pop()
+            else:
+                stack.append(ch)
+        if len(stack) == 0:
+            return result
+        while stack:
+            result = stack[-1] + result
+            stack.pop()
+        return result
+
+    def removeStars1(self, s: str) -> str:
         characters = [""] * len(s)
         result = ""
         k = 0
