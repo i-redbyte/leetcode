@@ -1,5 +1,18 @@
 class Solution:
     def licenseKeyFormatting(self, s: str, k: int) -> str:
+        result = ""
+        letters_and_numbers = s.upper().replace('-', '')
+        n = len(letters_and_numbers)
+        index = n % k
+        if index != 0:
+            result += letters_and_numbers[0:index]
+            result += "-"
+        for i in range(index, n, k):
+            result += letters_and_numbers[i:i + k]
+            result += "-"
+        return result[:-1]
+
+    def licenseKeyFormatting1(self, s: str, k: int) -> str:
         n = len(s)
         count = 0
         result = ""
