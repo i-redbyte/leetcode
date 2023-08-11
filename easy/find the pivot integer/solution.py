@@ -1,8 +1,6 @@
 class Solution:
     def pivotInteger(self, n: int) -> int:
-        sum = 0
-        for i in range(1, n + 1):
-            sum += i
+        sum = ((1 + n) * n) // 2
         s1 = 0
         for i in range(1, n + 1):
             s1 += i
