@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     def numberOfEmployeesWhoMetTarget(self, hours: List[int], target: int) -> int:
+        n = len(hours)
+        result = 0
+        for i in range(n):
+            if target <= hours[i]:
+                result += 1
+        return result
+
+    def numberOfEmployeesWhoMetTarget1(self, hours: List[int], target: int) -> int:
         n = len(hours) - 1
         half = n // 2
         i = 0
@@ -10,7 +18,7 @@ class Solution:
         while i <= half:
             if hours[n - i] >= target:
                 result += 1
-            if hours[i] >= target and i != n-i:
+            if hours[i] >= target and i != n - i:
                 result += 1
             i += 1
         return result
