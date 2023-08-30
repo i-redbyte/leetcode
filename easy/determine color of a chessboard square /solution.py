@@ -1,5 +1,10 @@
 class Solution:
     def squareIsWhite(self, coordinates: str) -> bool:
+        col = ord(coordinates[1])
+        row = ord(coordinates[0])
+        return bool((col ^ row) & 1)
+
+    def squareIsWhite1(self, coordinates: str) -> bool:
         col = ord(coordinates[1]) - 48  # ord('0')
         row = ord(coordinates[0]) - 96  # ord('a)-1
         if (row % 2 == 0 and col % 2 != 0) or (row % 2 != 0 and col % 2 == 0):
