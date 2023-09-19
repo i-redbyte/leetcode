@@ -3,6 +3,18 @@ from typing import List
 
 class Solution:
     def sumIndicesWithKSetBits(self, nums: List[int], k: int) -> int:
+        if k == 0:
+            return nums[0]
+        n = len(nums)
+        tmp = [0] * n
+        result = 0
+        for i in range(1, n):
+            tmp[i] = 1 + tmp[i & (i - 1)]
+            if tmp[i] == k:
+                result += nums[i]
+        return result
+
+    def sumIndicesWithKSetBits2(self, nums: List[int], k: int) -> int:
         return sum(x for i, x in enumerate(nums) if bin(i).count('1') == k)
 
     def sumIndicesWithKSetBits1(self, nums: List[int], k: int) -> int:
