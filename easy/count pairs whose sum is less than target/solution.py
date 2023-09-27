@@ -3,6 +3,19 @@ from typing import List
 
 class Solution:
     def countPairs(self, nums: List[int], target: int) -> int:
+        nums.sort()
+        n = len(nums) - 1
+        return self.compute(nums, target, 0, n)
+
+    def compute(self, nums: List[int], target: int, start: int, end: int) -> int:
+        if start >= end:
+            return 0
+        if nums[start] + nums[end] < target:
+            return (end - start) + self.compute(nums, target, start + 1, end)
+        else:
+            return self.compute(nums, target, start, end - 1)
+
+    def countPairs1(self, nums: List[int], target: int) -> int:
         result = 0
         nums.sort()
         start = 0
