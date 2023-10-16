@@ -5,6 +5,21 @@ from typing import List
 class Solution:
     def minKBitFlips(self, nums: List[int], k: int) -> int:
         n = len(nums)
+        acc, flag = [0] * n, 0
+        for i, num in enumerate(nums):
+            if i >= k:
+                flag ^= acc[i - k]
+
+            if flag != num:
+                continue
+            if k > n - i:
+                return -1
+            flag ^= 1
+            acc[i] = 1
+        return sum(acc)
+
+    def minKBitFlips2(self, nums: List[int], k: int) -> int:
+        n = len(nums)
         flips = 0
         flip_count = 0
         flip_needed = [False] * n
