@@ -6,6 +6,24 @@ class Solution:
     def minKBitFlips(self, nums: List[int], k: int) -> int:
         n = len(nums)
         flips = 0
+        flip_count = 0
+        flip_needed = [False] * n
+
+        for i in range(n):
+            if i >= k:
+                flip_count -= flip_needed[i - k]
+            if (nums[i] + flip_count) % 2 == 0:
+                if i + k > n:
+                    return -1
+                flips += 1
+                flip_count += 1
+                flip_needed[i] = True
+
+        return flips
+
+    def minKBitFlips1(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        flips = 0
         flip_queue = deque()
 
         for i in range(n):
