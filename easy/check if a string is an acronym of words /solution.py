@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     def isAcronym(self, words: List[str], s: str) -> bool:
+        j, n = 0, len(s)
+        for str in words:
+            if j >= n or s[j] != str[0]:
+                return False
+            j += 1
+        return j == n
+
+    def isAcronym1(self, words: List[str], s: str) -> bool:
         n = len(words)
         acronym = ""
         if n != len(s):
