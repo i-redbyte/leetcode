@@ -3,6 +3,20 @@ from typing import List
 
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
+        rows, cols, boxes = [0] * 9, [0] * 9, [0] * 9
+        for r in range(9):
+            for c in range(9):
+                if board[r][c] != '.':
+                    val = int(board[r][c]) - 1
+                    bitmask = 1 << val
+                    if (rows[r] & bitmask) or (cols[c] & bitmask) or (boxes[(r // 3) * 3 + c // 3] & bitmask):
+                        return False
+                    rows[r] |= bitmask
+                    cols[c] |= bitmask
+                    boxes[(r // 3) * 3 + c // 3] |= bitmask
+        return True
+
+    def isValidSudoku1(self, board: List[List[str]]) -> bool:
         def isDuplicate(nums: List[str]) -> bool:
             seen = [False] * 9
             for num in nums:
