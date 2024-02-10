@@ -3,6 +3,16 @@ from typing import List
 
 class Solution:
     def minOperations(self, nums: List[int], k: int) -> int:
+        result = 0
+        mask = (1 << k) - 1
+        for i, n in enumerate(reversed(nums), 1):
+            if n <= k:
+                result |= 1 << (n - 1)
+                if result == mask:
+                    return i
+        return -1
+
+    def minOperations1(self, nums: List[int], k: int) -> int:
         s = set()
         result = 1
         for i in range(1, k + 1):
