@@ -23,7 +23,7 @@ class Solution:
             return temp.right is not None
         return temp.left is not None
 
-    def countNodes(self, root: TreeNode) -> int:
+    def countNodes1(self, root: TreeNode) -> int:
         if not root:
             return 0
         h = 0
@@ -49,4 +49,13 @@ class Solution:
         result += lastLvl + 1
         return result
 
+    def countNodes(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
 
+        count = 1
+        if root.left is not None:
+            count += self.countNodes(root.left)
+        if root.right is not None:
+            count += self.countNodes(root.right)
+        return count
