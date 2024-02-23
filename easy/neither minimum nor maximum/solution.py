@@ -3,6 +3,20 @@ from typing import List
 
 class Solution:
     def findNonMinOrMax(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n < 3:
+            return -1
+        mid = nums[n // 2]
+        first = nums[0]
+        last = nums[n - 1]
+        sum = first + mid + last
+        if (first != mid != last) and (first != last) and (mid != first and mid != last):
+            mx = max(first, mid, last)
+            mn = min(first, mid, last)
+            return sum - mx - mn
+        return -1
+
+    def findNonMinOrMax3(self, nums: List[int]) -> int:
         s = set(nums)
         n = len(nums)
         if n < 3:
