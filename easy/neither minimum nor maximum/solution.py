@@ -6,6 +6,15 @@ class Solution:
         n = len(nums)
         if n < 3:
             return -1
+        sum = nums[0] + nums[1] + nums[2]
+        mx = max(nums[0], nums[1], nums[2])
+        mn = min(nums[0], nums[1], nums[2])
+        return sum - mx - mn
+
+    def findNonMinOrMax4(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n < 3:
+            return -1
         mid = nums[n // 2]
         first = nums[0]
         last = nums[n - 1]
