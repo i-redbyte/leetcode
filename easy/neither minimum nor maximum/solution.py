@@ -3,6 +3,15 @@ from typing import List
 
 class Solution:
     def findNonMinOrMax(self, nums: List[int]) -> int:
+        s = set(nums)
+        n = len(nums)
+        if n < 3:
+            return -1
+        s.remove(min(s))
+        s.remove(max(s))
+        return s.pop()
+
+    def findNonMinOrMax2(self, nums: List[int]) -> int:
         n = len(nums)
         if n < 3:
             return -1
