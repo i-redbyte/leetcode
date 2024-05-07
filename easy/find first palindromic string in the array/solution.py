@@ -3,6 +3,12 @@ from typing import List
 
 class Solution:
     def firstPalindrome(self, words: List[str]) -> str:
+        for w in words:
+            if w == w[::-1]:
+                return w
+        return ""
+
+    def firstPalindrome1(self, words: List[str]) -> str:
         def isPalindrome(s: str) -> bool:
             start = 0
             end = len(s) - 1
