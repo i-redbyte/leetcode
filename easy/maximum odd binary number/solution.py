@@ -1,5 +1,8 @@
 class Solution:
     def maximumOddBinaryNumber(self, s: str) -> str:
+        return "1" * (n1 := s.count('1') - 1) + "0" * (len(s) - n1 - 1) + "1"
+
+    def maximumOddBinaryNumber2(self, s: str) -> str:
         sorts = sorted(s, reverse=True)
         n = len(s)
         for i in range(n - 1, -1, -1):
@@ -8,7 +11,7 @@ class Solution:
                 break
         return ''.join(sorts)
 
-    def maximumOddBinaryNumber(self, s: str) -> str:
+    def maximumOddBinaryNumber1(self, s: str) -> str:
         n = len(s)
         ones = 0
         for ch in s:
