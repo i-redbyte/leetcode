@@ -1,3 +1,4 @@
+from collections import defaultdict
 from functools import reduce
 from itertools import chain
 from operator import xor
@@ -6,6 +7,18 @@ from typing import List
 
 class Solution:
     def duplicateNumbersXOR(self, nums: List[int]) -> int:
+        d = defaultdict(int)
+        for num in nums:
+            d[num] += 1
+
+        result = 0
+        for num, count in d.items():
+            if count == 2:
+                result ^= num
+
+        return result
+
+    def duplicateNumbersXOR2(self, nums: List[int]) -> int:
         return reduce(xor, chain(nums, set(nums)))
 
     def duplicateNumbersXOR1(self, nums: List[int]) -> int:
