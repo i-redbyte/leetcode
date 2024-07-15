@@ -3,10 +3,24 @@ from typing import List
 
 class Solution:
     def isOneBitCharacter(self, bits: List[int]) -> bool:
-        i = len(bits) - 2
+        def canDecode(index: int) -> bool:
+            if index >= len(bits):
+                return False
+            if index == len(bits) - 1:
+                return True
+            if bits[index] == 0:
+                return canDecode(index + 1)
+            elif bits[index] == 1:
+                return canDecode(index + 2)
+            return False
+        return canDecode(0)
+
+    def isOneBitCharacter2(self, bits: List[int]) -> bool:
+        n = len(bits)
+        i = n - 2
         while i >= 0 and bits[i] > 0:
             i -= 1
-        return (len(bits) - i) % 2 == 0
+        return (n - i) % 2 == 0
 
     def isOneBitCharacter1(self, bits: List[int]) -> bool:
         i = 0
