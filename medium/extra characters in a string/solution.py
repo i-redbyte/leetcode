@@ -20,4 +20,3 @@ s = Solution()
 print(s.minExtraChar(s="leetscode", dictionary=["leet", "code", "leetcode"]))
 print(s.minExtraChar(s="sayhelloworld", dictionary=["hello", "world"]))
 print(s.minExtraChar(s="dwmodizxvvbosxxw", dictionary=["ox","lb","diz","gu","v","ksv","o","nuq","r","txhe","e","wmo","cehy","tskz","ds","kzbu"]))
-`
