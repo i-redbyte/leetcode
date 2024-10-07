@@ -1,16 +1,6 @@
 class Solution:
+
     def minLength(self, s: str) -> int:
-        result = []
-        for char in s:
-            result.append(char)
-            if len(result) >= 2 and (
-                    (result[-2] == 'A' and result[-1] == 'B') or (result[-2] == 'C' and result[-1] == 'D')):
-                result.pop()
-                result.pop()
-
-        return len(result)
-
-    def minLength2(self, s: str) -> int:
         new_string = s.replace("AB", "").replace("CD", "")
         return len(new_string) if new_string == s else self.minLength(new_string)
 
