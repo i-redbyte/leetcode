@@ -1,11 +1,5 @@
 from typing import Optional
-
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from utils import TreeNode, printTree
 
 
 class Solution:
@@ -31,13 +25,6 @@ class Solution:
                 node.left, node.right = node.right, node.left
                 stack += node.left, node.right
         return root
-
-
-def printTree(node: TreeNode, level=0):
-    if node is not None:
-        printTree(node.left, level + 1)
-        print(' ' * 4 * level + '->', node.val)
-        printTree(node.right, level + 1)
 
 
 s = Solution()
