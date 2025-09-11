@@ -1,6 +1,47 @@
 class Solution:
-
     def sortVowels(self, s: str) -> str:
+        vowels = set("AEIOUaeiou")
+        pos, vals = [], []
+        for i, ch in enumerate(s):
+            if ch in vowels:
+                pos.append(i)
+                vals.append(ch)
+
+        if not vals:
+            return s
+
+        sorted_vals = sorted(vals)
+
+        from collections import deque, defaultdict
+        targets = defaultdict(deque)
+        for j, ch in enumerate(sorted_vals):
+            targets[ch].append(j)
+
+        m = len(vals)
+        p = [0] * m
+        for i, ch in enumerate(vals):
+            p[i] = targets[ch].popleft()
+
+        res = list(s)
+        visited = [False] * m
+        for i in range(m):
+            if visited[i] or p[i] == i:
+                visited[i] = True
+                continue
+            cycle = []
+            j = i
+            while not visited[j]:
+                visited[j] = True
+                cycle.append(j)
+                j = p[j]
+            buf = [res[pos[k]] for k in cycle]
+            L = len(cycle)
+            for t in range(L):
+                res[pos[cycle[(t + 1) % L]]] = buf[t]
+
+        return "".join(res)
+
+    def sortVowels2(self, s: str) -> str:
         vowel_mask = 0
         for ch in "aeiou":
             vowel_mask |= 1 << (ord(ch) - 97)
