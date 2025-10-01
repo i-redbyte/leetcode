@@ -1,5 +1,8 @@
 class Solution:
     def numWaterBottles(self, numBottles: int, numExchange: int) -> int:
+        return numBottles + (numBottles - 1) // (numExchange - 1)
+
+    def numWaterBottles1(self, numBottles: int, numExchange: int) -> int:
         result = 0
         while numBottles >= numExchange:
             result += numExchange
