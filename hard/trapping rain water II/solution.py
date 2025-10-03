@@ -9,6 +9,71 @@ class Solution:
         m, n = len(heightMap), len(heightMap[0])
         if m < 3 or n < 3:
             return 0
+
+        def is_visited(bits: int, idx: int) -> bool:
+            return ((bits >> idx) & 1) == 1
+
+        def set_visited(bits: int, idx: int) -> int:
+            return bits | (1 << idx)
+
+        maxH = max(max(row) for row in heightMap)
+        buckets = [[] for _ in range(maxH + 1)]
+        occupancy = 0
+
+        def push(h: int, r: int, c: int):
+            nonlocal occupancy
+            buckets[h].append((r, c))
+            occupancy |= (1 << h)
+
+        def pop_min():
+            nonlocal occupancy
+            lsb = occupancy & -occupancy
+            h = lsb.bit_length() - 1
+            r, c = buckets[h].pop()
+            if not buckets[h]:
+                occupancy &= ~(1 << h)
+            return h, r, c
+
+        visited = 0
+        trapped = 0
+
+        for r in range(m):
+            for c in (0, n - 1):
+                idx = r * n + c
+                if not is_visited(visited, idx):
+                    visited = set_visited(visited, idx)
+                    push(heightMap[r][c], r, c)
+        for c in range(n):
+            for r in (0, m - 1):
+                idx = r * n + c
+                if not is_visited(visited, idx):
+                    visited = set_visited(visited, idx)
+                    push(heightMap[r][c], r, c)
+
+        dirs = ((1, 0), (-1, 0), (0, 1), (0, -1))
+
+        while occupancy:
+            h, r, c = pop_min()
+            for dr, dc in dirs:
+                nr, nc = r + dr, c + dc
+                if 0 <= nr < m and 0 <= nc < n:
+                    nidx = nr * n + nc
+                    if not is_visited(visited, nidx):
+                        visited = set_visited(visited, nidx)
+                        nh = heightMap[nr][nc]
+                        if nh < h:
+                            trapped += h - nh
+                        eff = h if h > nh else nh
+                        push(eff, nr, nc)
+
+        return trapped
+
+    def trapRainWater1(self, heightMap: List[List[int]]) -> int:
+        if not heightMap or not heightMap[0]:
+            return 0
+        m, n = len(heightMap), len(heightMap[0])
+        if m < 3 or n < 3:
+            return 0
         result = 0
         visited = [[False] * n for _ in range(m)]
         heap = []
