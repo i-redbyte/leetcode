@@ -3,6 +3,29 @@ from math import gcd
 
 class Solution:
     def findLexSmallestString(self, s: str, a: int, b: int) -> str:
+        s = list(map(int, s))
+        n = len(s)
+        step = gcd(b, n)
+        g = gcd(a, 10)
+        result = [10]
+
+        def modify(start: int) -> None:
+            ch = t[start]
+            inc = ch % g - ch
+            if inc:
+                for j in range(start, n, 2):
+                    t[j] = (t[j] + inc) % 10
+
+        for i in range(0, n, step):
+            t = s[i:] + s[:i]
+            modify(1)
+            if step % 2:
+                modify(0)
+            result = min(result, t)
+
+        return ''.join(map(str, result))
+
+    def findLexSmallestString1(self, s: str, a: int, b: int) -> str:
         n = len(s)
         a %= 10
         t = 10 // gcd(a, 10) if a else 1
