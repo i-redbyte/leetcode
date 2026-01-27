@@ -6,6 +6,51 @@ class Solution:
         if not intervals:
             return []
 
+        OFFSET = 10000
+        MAX = 20000
+
+        max_end = [-1] * (MAX + 1)
+
+        min_s = MAX
+        max_e = 0
+
+        for s, e in intervals:
+            si = s + OFFSET
+            ei = e + OFFSET
+            if ei > max_end[si]:
+                max_end[si] = ei
+            if si < min_s:
+                min_s = si
+            if ei > max_e:
+                max_e = ei
+
+        merged: List[List[int]] = []
+        append = merged.append
+
+        i = min_s
+        while i <= max_e:
+            if max_end[i] == -1:
+                i += 1
+                continue
+
+            start = i
+            end = max_end[i]
+            i += 1
+
+            while i <= end and i <= max_e:
+                ei = max_end[i]
+                if ei > end:
+                    end = ei
+                i += 1
+
+            append([start - OFFSET, end - OFFSET])
+
+        return merged
+
+    def merge1(self, intervals: List[List[int]]) -> List[List[int]]:
+        if not intervals:
+            return []
+
         intervals.sort(key=lambda x: (x[0], x[1]))
 
         result: List[List[int]] = []
