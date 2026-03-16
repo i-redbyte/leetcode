@@ -79,12 +79,3 @@ class Fancy:
 # obj.addAll(inc)
 # obj.multAll(m)
 # param_4 = obj.getIndex(idx)
-        
-
-
-# Your Fancy object will be instantiated and called as such:
-# obj = Fancy()
-# obj.append(val)
-# obj.addAll(inc)
-# obj.multAll(m)
-# param_4 = obj.getIndex(idx)
